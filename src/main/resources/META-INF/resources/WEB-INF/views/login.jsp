@@ -6,9 +6,7 @@
 <html lang="en">
 <body>
 <form method="post" action="/create-user">
-  <input type="text" placeholder="aaa" name="aaa"/>
-    <br/>
-    <input type="text" placeholder="bbb" name="bbb"/>
+  <input type="text" placeholder="Type your choice" name="choice"/>
     <br/>
     <input type="submit" value="RandomChat"/>
 </form>

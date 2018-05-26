@@ -42,12 +42,12 @@ public class MainController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
 	@RequestMapping("/abc")
-	public ModelAndView index(@RequestParam("name") String name, @RequestParam("aaa") String aaa,
-			@RequestParam("bbb") String bbb, HttpServletResponse response) {
+	public ModelAndView index(@RequestParam("name") String name, @RequestParam("choice") String choice,
+			HttpServletResponse response) {
 
 		System.out.println("name= " + name);
-		System.out.println("aaa= " + aaa);
-		System.out.println("bbb= " + bbb);
+		System.out.println("Your Choice= " + choice);
+
 		logger.info("<randomName> = " + name);
 		// 1.이름이 비어있다면 loginPage()로 이동
 		if (name == null) {
@@ -90,13 +90,24 @@ public class MainController {
 	// 1-2. login Form에서 넘어오면 '/create-user' URL로 이동
 	// login Form에서 crate-user하면 [DB에 저장 + Cookie에 저장]
 	@RequestMapping(value = "/create-user", method = RequestMethod.POST)
-	public ModelAndView createUser(HttpServletRequest request,RedirectAttributes redirectAttributes, @RequestParam(value = "aaa") String aaa,
-			@RequestParam(value = "bbb") String bbb) {
+	public ModelAndView createUser(HttpServletRequest request, RedirectAttributes redirectAttributes,
+			@RequestParam(value = "choice") String choice) {
+		String name = "";
 		try {
 			// User 객체 생성
 			User user = new User();
 			// (익명 아이디 부여)
-			String name = randomNameService.getRandomName();
+			if (choice.equals("bts")) {
+				name = randomNameService.getBTSRandomName();
+			} else if (choice.equals("redvelvet")) {
+				name = randomNameService.getRedvelvetRandomName();
+			} else if (choice.equals("exo")) {
+				name = randomNameService.getEXORandomName();
+			} else if (choice.equals("twice")) {
+				name = randomNameService.getTwiceRandomName();
+			} else {
+				name = randomNameService.getRandomName();
+			}
 
 			// User=> [Name, Time] 설정
 			user.setName(name);
@@ -109,8 +120,8 @@ public class MainController {
 			}
 			// !!!!!!!!!!!!
 			redirectAttributes.addAttribute("name", name);
-			redirectAttributes.addAttribute("aaa", aaa);
-			redirectAttributes.addAttribute("bbb", bbb);
+			redirectAttributes.addAttribute("choice", choice);
+
 			// 쿠키에 저장
 			// Cookie cookie = new Cookie("name", name);
 			// response.addCookie(cookie);
