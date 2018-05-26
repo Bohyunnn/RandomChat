@@ -1,0 +1,53 @@
+@CHARSET "EUC-KR";
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosankr.css);
+
+* {
+	font-family: 'Nanum Gothic';
+}
+
+h5 {
+	font-family: 'Noto Sans KR';
+	font-size: 15px;
+}
+
+h4 {
+	font-family: 'Noto Sans KR';
+}
+
+h3 {
+	font-family: 'Hanna';
+}
+
+h2 {
+	font-family: 'Hanna';
+}
+
+h1 {
+	font-family: 'Hanna';
+}
+
+.container-wrapper {
+	margin-top: 80px;
+}
+
+.table {
+	table-layout: fixed;
+	overflow: auto;
+}
+
+.table th {
+	text-align: center;
+	overflow: hidden;
+}
+
+.table td {
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
