@@ -279,6 +279,10 @@ body {
 .message_template {
 	display: none;
 }
+
+.opacitydiv {
+	opacity: 0;
+}
 </style>
 </head>
 <body>
@@ -315,12 +319,12 @@ body {
 						</ul>
 					</div>
 					<div class="modal-footer">
-						<div id="new-chat-container">
-							<div class="form-group col-xs-9">
+						<div id="new-chat-container" style="background-color:#1278ff">
+							<div class="form-group col-xs-11">
 								<input id="new-chat-input" style="height: 40px;" type="text"
 									class="form-control" placeholder="Type your message here..." />
 							</div>
-							<div class="form-group col-xs-3">
+							<div class="form-group col-xs-1 opacitydiv">
 								<input type="button" value="Send" id="new-chat-button">
 							</div>
 						</div>
@@ -378,47 +382,46 @@ body {
 					var chats = '';
 
 					for (var i = 0; i < json.length; i++) {
-												chats += '<div><strong>' + json[i].user.name
-														+ ': </strong><span>' + json[i].message
-														+ '</span>';
-											
+						chats += '<div><strong>' + json[i].user.name
+								+ ': </strong><span>' + json[i].message
+								+ '</span>';
 
-// 						if (json[i].user.userId == URLDecoder.decode(getCookie('name'))) {
-// 							chats += '<li class="left clearfix">';
-// 							chats += '	<div class="chat-body clearfix">';
-// 							chats += '		<div class="header">';
-// 							chats += '		<strong class="pull-right primary-font">'
-// 									+ URLDecoder.decode(json[i].user.name) + '</strong>';
-// 							chats += '		<small class="text-muted">';
-// 							chats += '			<i class="fa fa-clock-o fa-fw"></i>'
-// 									+ json[i].timestamp
-// 							chats += '		</small>';
-// 							chats += '	</div>';
-// 							chats += '	<p>';
-// 							chats += json[i].message;
-// 							chats += '	</p>';
-// 							chats += '	</div>';
-// 							chats += '</li>';
-// 							chats += '<hr>';
-// 						} else {
-// 							chats += '<li class="left clearfix">';
-// 							chats += '	<div class="chat-body clearfix">';
-// 							chats += '		<div class="header">';
-// 							chats += '		<strong class="primary-font">'
-// 									+ URLDecoder.decode(json[i].user.name) + '</strong>';
-// 							chats += '		<small class="pull-right text-muted">';
-// 							chats += '			<i class="fa fa-clock-o fa-fw"></i>'
-// 									+ json[i].timestamp
-// 							chats += '		</small>';
-// 							chats += '	</div>';
-// 							chats += '	<p>';
-// 							chats += json[i].message;
-// 							chats += '	</p>';
-// 							chats += '	</div>';
-// 							chats += '</li>';
-// 							chats += '<hr>';
+						// 						if (json[i].user.userId == URLDecoder.decode(getCookie('name'))) {
+						// 							chats += '<li class="left clearfix">';
+						// 							chats += '	<div class="chat-body clearfix">';
+						// 							chats += '		<div class="header">';
+						// 							chats += '		<strong class="pull-right primary-font">'
+						// 									+ URLDecoder.decode(json[i].user.name) + '</strong>';
+						// 							chats += '		<small class="text-muted">';
+						// 							chats += '			<i class="fa fa-clock-o fa-fw"></i>'
+						// 									+ json[i].timestamp
+						// 							chats += '		</small>';
+						// 							chats += '	</div>';
+						// 							chats += '	<p>';
+						// 							chats += json[i].message;
+						// 							chats += '	</p>';
+						// 							chats += '	</div>';
+						// 							chats += '</li>';
+						// 							chats += '<hr>';
+						// 						} else {
+						// 							chats += '<li class="left clearfix">';
+						// 							chats += '	<div class="chat-body clearfix">';
+						// 							chats += '		<div class="header">';
+						// 							chats += '		<strong class="primary-font">'
+						// 									+ URLDecoder.decode(json[i].user.name) + '</strong>';
+						// 							chats += '		<small class="pull-right text-muted">';
+						// 							chats += '			<i class="fa fa-clock-o fa-fw"></i>'
+						// 									+ json[i].timestamp
+						// 							chats += '		</small>';
+						// 							chats += '	</div>';
+						// 							chats += '	<p>';
+						// 							chats += json[i].message;
+						// 							chats += '	</p>';
+						// 							chats += '	</div>';
+						// 							chats += '</li>';
+						// 							chats += '<hr>';
 
-// 						}
+						// 						}
 					}
 
 					//chat_container 안에 chat 메시지
